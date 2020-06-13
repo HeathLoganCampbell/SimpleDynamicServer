@@ -1,0 +1,4 @@
+name: DynamicServer
+main: dev.sprock.server.DynamicServerPlugin
+version: v1.0
+authors: [ Sprock ]
