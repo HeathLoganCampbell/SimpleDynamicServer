@@ -67,10 +67,12 @@ public class MonitiorModule extends RedisModule
     {
         ServerData bestServer = null;
         int playerCount = 0;
+        long now = System.currentTimeMillis();
+
         for (ServerData serverData : this.serverDatas) {
             if(serverData.getServerType() == serverType)
             {
-                if(serverData.isJoinable())
+                if(serverData.isJoinable() && now - serverData.getLastUpdate() > 10_000)
                     if(serverData.getPlayerCount() >= playerCount) {
                         bestServer = serverData;
                         playerCount = serverData.getPlayerCount();
