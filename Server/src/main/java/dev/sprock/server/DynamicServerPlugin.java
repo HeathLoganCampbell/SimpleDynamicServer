@@ -25,8 +25,10 @@ public class DynamicServerPlugin extends JavaPlugin
     @Override
     public void onEnable()
     {
-        String address = "localhost";
+        String address = "158.69.122.239";
         int port = 6379;
+
+        this.getServer().getMessenger().registerOutgoingPluginChannel(this, Constants.SEND_PLAYER_HEADER);
 
         this.callerModule = new CallerModule(address, port);
         Bukkit.getScheduler().runTaskTimerAsynchronously(this, () -> {

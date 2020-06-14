@@ -71,8 +71,10 @@ public class MonitiorModule extends RedisModule
             if(serverData.getServerType() == serverType)
             {
                 if(serverData.isJoinable())
-                    if(serverData.getPlayerCount() >= playerCount)
+                    if(serverData.getPlayerCount() >= playerCount) {
                         bestServer = serverData;
+                        playerCount = serverData.getPlayerCount();
+                    }
             }
         }
         return bestServer;

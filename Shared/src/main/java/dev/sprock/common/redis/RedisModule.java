@@ -17,6 +17,7 @@ public class RedisModule
     public RedisModule(String host, int port)
     {
         this.pool = new JedisPool(host, port);
+
     }
 
     public void shutdown()
